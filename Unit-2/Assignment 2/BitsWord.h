@@ -38,26 +38,26 @@ public:
      *
      * @return BitsByte*
      */
-    BitsByte *getLower();
+    BitsByte *getLower() const;
 
     /**
      * @brief Get the Upper object
      *
      * @return BitsByte*
      */
-    BitsByte *getUpper();
+    BitsByte *getUpper() const;
 
     /**
      * @brief
      *
      * @return string
      */
-    string toString();
+    string toString() const;
 
     /**
      * @brief
      *
      * @return int
      */
-    int toInt();
+    int toInt() const;
 };

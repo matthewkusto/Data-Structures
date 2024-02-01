@@ -46,4 +46,18 @@ public:
      * @return BitsByte*
      */
     BitsByte *getUpper();
+
+    /**
+     * @brief
+     *
+     * @return string
+     */
+    string toString();
+
+    /**
+     * @brief
+     *
+     * @return int
+     */
+    int toInt();
 };

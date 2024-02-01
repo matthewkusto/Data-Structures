@@ -3,6 +3,8 @@
 class BitsWord
 {
 private:
+    BitsByte *mLower;
+    BitsByte *mUpper;
 
 public:
     BitsWord();

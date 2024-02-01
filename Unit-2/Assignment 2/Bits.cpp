@@ -25,7 +25,7 @@ BitsWord::BitsWord(int value) : mLower(nullptr), mUpper(nullptr)
  *
  * @return BitsByte*
  */
-BitsByte *BitsWord::getUpper() const
+BitsByte *BitsWord::getUpper()
 {
     return mUpper;
 };
@@ -35,7 +35,7 @@ BitsByte *BitsWord::getUpper() const
  *
  * @return BitsByte*
  */
-BitsByte *BitsWord::getLower() const
+BitsByte *BitsWord::getLower()
 {
     return mUpper;
 };
@@ -45,10 +45,11 @@ BitsByte *BitsWord::getLower() const
  *
  * @return string
  */
-string BitsWord::toString() const
+string BitsWord::toString()
 {
-    mLower->toString();
-    mUpper->toString();
+    string something = mLower->toString();
+    string other = mUpper->toString();
+    return other.append(something);
 }
 
 /**
@@ -56,7 +57,7 @@ string BitsWord::toString() const
  *
  * @return int
  */
-int BitsWord::toInt() const
+int BitsWord::toInt()
 {
     int i = stoi(toString(), nullptr, 2);
     return i;

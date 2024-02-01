@@ -1,4 +1,5 @@
 #include "BitsByte.h"
+#include <iostream>
 
 class BitsWord
 {
@@ -38,26 +39,26 @@ public:
      *
      * @return BitsByte*
      */
-    BitsByte *getLower() const;
+    BitsByte *getLower();
 
     /**
      * @brief Get the Upper object
      *
      * @return BitsByte*
      */
-    BitsByte *getUpper() const;
+    BitsByte *getUpper();
 
     /**
      * @brief
      *
      * @return string
      */
-    string toString() const;
+    string toString();
 
     /**
      * @brief
      *
      * @return int
      */
-    int toInt() const;
+    int toInt();
 };

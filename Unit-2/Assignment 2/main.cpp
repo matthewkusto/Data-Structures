@@ -1,6 +1,4 @@
-#include "Bytes.cpp"
 #include "Bits.cpp"
-using namespace std;
 
 int main()
 {
@@ -13,8 +11,6 @@ int main()
 
     cout << bw.toInt() << endl;
     cout << bw.toString() << endl;
-
-    return 0;
 
     return 0;
 }

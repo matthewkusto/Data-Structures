@@ -3,7 +3,9 @@
 class BitsWord
 {
 private:
-    /* data */
+    int *mLower = nullptr;
+    int *mUpper = nullptr;
+
 public:
     BitsWord();
     BitsWord(int value);

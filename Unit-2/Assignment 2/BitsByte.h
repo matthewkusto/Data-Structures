@@ -86,14 +86,14 @@ public:
      *
      * @return string
      */
-    string toString() const;
+    string toString();
 
     /**
      * @brief
      *
      * @return int
      */
-    int toInt() const;
+    int toInt();
 
 private:
     // array that stores 8 values

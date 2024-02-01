@@ -1,5 +1,4 @@
 #include "BitsByte.h"
-#include <iostream>
 
 class BitsWord
 {

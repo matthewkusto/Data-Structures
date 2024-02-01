@@ -168,7 +168,7 @@ int BitsByte::at(int index) const
 //  @par Notes
 //      return array as string
 // ###############################################
-string BitsByte::toString() const
+string BitsByte::toString()
 {
     string _bits;
     int mask = 1;
@@ -200,7 +200,7 @@ string BitsByte::toString() const
 //  @par Notes
 //      None
 // ###############################################
-int BitsByte::toInt() const
+int BitsByte::toInt()
 {
     // int i = stoi(toString(), nullptr, 2);
     return bitsToInt();

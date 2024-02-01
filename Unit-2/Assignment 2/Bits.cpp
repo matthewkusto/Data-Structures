@@ -47,6 +47,8 @@ BitsByte *BitsWord::getLower() const
  */
 string BitsWord::toString() const
 {
+    mLower->toString();
+    mUpper->toString();
 }
 
 /**

@@ -47,11 +47,6 @@ BitsByte *BitsWord::getLower() const
  */
 string BitsWord::toString() const
 {
-    for (int i = 7; i >= 0; i--)
-    {
-        
-    }
-    
 }
 
 /**

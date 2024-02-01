@@ -1,13 +1,24 @@
-#include <iostream>
-#include <string>
-using namespace std;
+#include "BitsByte.h"
 
-#include <iostream>
-using namespace std;
-
-int main()
+class BitsWord
 {
-    
+private:
+    /* data */
+public:
+    BitsWord();
+    BitsWord(int value);
+    ~BitsWord();
+    // Mutator
+    void setValue(int value); // sets mUpper and mLower
+    // Accessors
+    BitsByte *getLower();
+    BitsByte *getUpper();
+};
 
-    return 0;
+BitsWord::BitsWord(/* args */)
+{
+}
+
+BitsWord::~BitsWord()
+{
 }

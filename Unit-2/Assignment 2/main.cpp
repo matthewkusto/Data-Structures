@@ -1,4 +1,4 @@
-#include "Bits.cpp"
+#include "BitsWord.h"
 
 int main()
 {

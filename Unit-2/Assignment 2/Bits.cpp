@@ -1,4 +1,3 @@
-#include "BitsByte.h"
 #include "BitsWord.h"
 
 /**

@@ -16,7 +16,7 @@
 	// 	"description": "Log output to console"
 	// }
 	
-	"Starter Temp C++": {
+	"Starter ": {
 		"prefix": "cpp",
 		"body": [
 		  "#include <iostream>",
@@ -24,11 +24,11 @@
 		  "",
 		  "int main()",
 		  "{",
-		  "",
-		  "",
+		  "    ",
+		  "    ",
 		  "    return 0;",
 		  "}"
 		],
-		"description": "Starter Temp C++"
+		"description": "Starter "
 	  }
 }

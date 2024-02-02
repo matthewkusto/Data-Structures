@@ -5,6 +5,7 @@ Decription: This is the header file
 Date: 01/27/2024
 */
 
+#pragma once
 #include <iostream>
 #include <string>
 using namespace std;

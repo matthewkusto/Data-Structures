@@ -46,9 +46,7 @@ BitsByte *BitsWord::getLower()
  */
 string BitsWord::toString()
 {
-    string something = mLower->toString();
-    string other = mUpper->toString();
-    return other.append(something);
+    return mUpper->toString(), mLower->toString();
 }
 
 /**

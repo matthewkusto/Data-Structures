@@ -14,7 +14,7 @@ BitsWord::BitsWord() : BitsWord(0) {}
 void BitsWord::setValue(int value)
 {
     mLower->setValue(value);
-    mUpper->setValue(value);
+    mUpper->setValue(value >> 8);
 }
 
 /**

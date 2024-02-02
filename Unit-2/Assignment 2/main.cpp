@@ -1,5 +1,4 @@
 #include "BitsWord.h"
-#include "Bits.cpp"
 #include <iostream>
 
 int main()

@@ -7,6 +7,17 @@
 BitsWord::BitsWord() : BitsWord(0) {}
 
 /**
+ * @brief 
+ * 
+ * @param value 
+ */
+void BitsWord::setValue(int value)
+{
+    mLower->setValue(value);
+    mUpper->setValue(value);
+}
+
+/**
  * @brief Construct a new Bits Word:: Bits Word object
  *
  * @param value

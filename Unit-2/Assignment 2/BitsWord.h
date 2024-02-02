@@ -1,4 +1,8 @@
+#ifndef BITSWORD_H
+#define BITSWORD_H
+
 #include "BitsByte.h"
+#include <string>
 
 class BitsWord
 {
@@ -61,3 +65,4 @@ public:
      */
     int toInt();
 };
+#endif

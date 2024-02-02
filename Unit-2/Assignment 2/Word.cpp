@@ -7,9 +7,9 @@
 BitsWord::BitsWord() : BitsWord(0) {}
 
 /**
- * @brief 
- * 
- * @param value 
+ * @brief
+ *
+ * @param value
  */
 void BitsWord::setValue(int value)
 {
@@ -47,7 +47,7 @@ BitsByte *BitsWord::getUpper()
  */
 BitsByte *BitsWord::getLower()
 {
-    return mUpper;
+    return mLower;
 };
 
 /**
@@ -57,7 +57,7 @@ BitsByte *BitsWord::getLower()
  */
 string BitsWord::toString()
 {
-    return mUpper->toString(), mLower->toString();
+    return mUpper->toString() + mLower->toString();
 }
 
 /**

@@ -1,10 +1,14 @@
+#ifndef CHECKEDARRRAY_H
+#define CHECKEDARRRAY_H
+
+#include <cstdlib>
 using namespace std;
 
 class CheckedArray
 {
 private:
-    int *myArray{nullptr};
-    int *mSize{nullptr};
+    int *myArray{NULL}; // array
+    int mSize{};        // holds size of array
 
 public:
     // fill the value of the array w/ 10 0's
@@ -17,4 +21,4 @@ public:
     void set(int index, int value);
 };
 
-
+#endif // CHECKEDARRRAY_H

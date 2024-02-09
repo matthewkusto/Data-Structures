@@ -1,8 +1,8 @@
 /*
-File: BitsByte.cpp
+File: Byte.cpp
 Author: Matthew Kusto
 Decription: This is the source file
-Date: 01/27/2024
+Date: 02/09/2024
 */
 
 #include "BitsByte.h"
@@ -28,11 +28,11 @@ BitsByte::BitsByte(int val)
  *
  * @param ar
  */
-BitsByte::BitsByte(int *ar)
+BitsByte::BitsByte(int* ar)
 {
     for (int i = 0; i < 8; i++)
     {
-        bits[i] += ar[i];
+        set(i, ar[i]); 
     }
 }
 
@@ -42,12 +42,12 @@ BitsByte::BitsByte(int *ar)
  * @param val
  */
 BitsByte::BitsByte(string val)
-{
-    for (int i = 0; i < 8; i++)
-    {
-        bits[i] = val[i];
-    }
-}
+ {
+     for (int i = 0; i < 8; i++)
+     {
+         set(i, (val[i] - '0'));
+     }
+ }
 
 /**
  * @brief
@@ -60,9 +60,20 @@ int BitsByte::bitsToInt() const
     for (int i = 7; i >= 0; i--)
     {
         result <<= 1;
-        result += bits[i];
+        result += at(i);
     }
     return result;
+}
+
+/**
+ * @brief
+ *
+ * @param index
+ * @return int
+ */
+int BitsByte::at(int index) const
+{
+    return CheckedArray::at(index);
 }
 
 /**
@@ -75,7 +86,7 @@ void BitsByte::setValue(int value)
     int mask = 1;
     for (int i = 0; i < 8; i++)
     {
-        bits[i] = value & mask;
+        set(i, (value & mask));
         value >>= 1;
     }
 }
@@ -83,26 +94,15 @@ void BitsByte::setValue(int value)
 /**
  * @brief
  *
- * @param index
- * @return int
- */
-int BitsByte::at(int index) const
-{
-    return bits[index];
-}
-
-/**
- * @brief
- *
  * @return string
  */
-string BitsByte::toString() const
+string BitsByte::toString()
 {
     string _bits;
     int mask = 1;
     for (int i = 7; i >= 0; i--)
     {
-        if (bits[i] & (mask))
+        if (at(i) & (mask))
         {
             _bits += '1';
         }
@@ -119,7 +119,7 @@ string BitsByte::toString() const
  *
  * @return int
  */
-int BitsByte::toInt() const
+int BitsByte::toInt()
 {
     // int i = stoi(toString(), nullptr, 2);
     return bitsToInt();

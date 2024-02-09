@@ -1,54 +1,107 @@
+/*
+File: Checked.cpp
+Author: Matthew Kusto
+Decription: This is the source file
+Date: 02/09/2024
+*/
+
 #include "CheckedArray.h"
 
-CheckedArray::CheckedArray()
+/**
+ * @brief Construct a new Checked Array:: Checked Array object
+ *
+ */
+CheckedArray::CheckedArray() : CheckedArray(10)
 {
-    myArray = new int[10];
-    for (int i = 0; i < sizeof(myArray); i++)
-    {
-        myArray[i] = 0;
-    }
 }
 
+/**
+ * @brief Construct a new Checked Array:: Checked Array object
+ *
+ * @param size
+ */
 CheckedArray::CheckedArray(int size)
 {
-    myArray = new int[size]; // allocating new memory since it is an array with pointer
-    for (int i = 0; i < sizeof(myArray); i++)
-    {
-        myArray[i] = 0;
-    }
+    this->initilize(size);
 }
 
-bool CheckedArray::initilize(int size, int val = 0)
+/**
+ * @brief
+ *
+ * @param size
+ * @param val
+ * @return true
+ * @return false
+ */
+bool CheckedArray::initilize(int size, int val)
 {
-    if (myArray != NULL)
+    if (this->myArray != NULL)
     {
-        delete[] myArray;
-        myArray = NULL;
+        delete[] this->myArray;
     }
-    
-    myArray = new int[size]; // mSize is set to size of the array
-    
-    return true;
 
+    this->myArray = new int[size]; // mSize is set to size of the array
+
+    if (this->myArray == NULL)
+    {
+        return false;
+    }
+
+    this->mSize = size;
+
+    for (int i = 0; i < size; i++)
+    {
+        this->myArray[i] = val;
+    }
+
+    return true;
 }
 
+/**
+ * @brief
+ *
+ * @param index
+ * @return int
+ */
 int CheckedArray::at(int index) const
 {
-    return myArray[index];
+    if (index >= 0 && index < this->mSize)
+    {
+        return this->myArray[index];
+    }
+    else
+    {
+        return -1;
+    }
 }
 
+/**
+ * @brief
+ *
+ * @param index
+ * @param value
+ */
 void CheckedArray::set(int index, int value)
 {
+    if (index >= 0 && index < this->mSize && this->myArray != NULL) // checks to see if index is out of bounds
+    {
+        this->myArray[index] = value;
+    }
+    return;
 }
 
+/**
+ * @brief Destroy the Checked Array:: Checked Array object
+ *
+ */
 CheckedArray::~CheckedArray()
 {
-    if (myArray == nullptr)
+    if (this->myArray == NULL)
     {
         return;
     }
     else
     {
-        delete[] myArray;
+        delete[] this->myArray;
     }
 }

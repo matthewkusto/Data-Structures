@@ -8,6 +8,7 @@ Date: 01/27/2024
 #define BITSBYTE_H
 
 #include <iostream>
+#include <vector>
 #include <string>
 using namespace std;
 

@@ -2,6 +2,7 @@
 #define BITSWORD_H
 
 #include "BitsByte.h"
+#include <vector>
 #include <string>
 
 class BitsWord

@@ -7,7 +7,6 @@ Date: 01/27/2024
 #ifndef BITSBYTE_H
 #define BITSBYTE_H
 
-#include <vector>
 #include <string>
 using namespace std;
 

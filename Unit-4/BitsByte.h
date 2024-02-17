@@ -2,7 +2,7 @@
 File: BitsByte.h
 Author: Matthew Kusto
 Decription: This is the header file
-Date: 01/27/2024
+Date: 02/16/2024
 */
 #ifndef BITSBYTE_H
 #define BITSBYTE_H

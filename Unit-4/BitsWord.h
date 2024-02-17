@@ -1,3 +1,10 @@
+/*
+File: BitsWord.h
+Author: Matthew Kusto
+Decription: This is the header file
+Date: 02/16/2024
+*/
+
 #ifndef BITSWORD_H
 #define BITSWORD_H
 
@@ -7,8 +14,8 @@
 class BitsWord
 {
 private:
-    BitsByte *mLower;
-    BitsByte *mUpper;
+    BitsByte *mLower = nullptr;
+    BitsByte *mUpper = nullptr;
 
 public:
     /**

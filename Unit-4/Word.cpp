@@ -1,3 +1,10 @@
+/*
+File: Word.cpp
+Author: Matthew Kusto
+Decription: This is the source file
+Date: 02/16/2024
+*/
+
 #include "BitsWord.h"
 
 /**
@@ -22,7 +29,7 @@ void BitsWord::setValue(int value)
  *
  * @param value
  */
-BitsWord::BitsWord(int value) : mLower(nullptr), mUpper(nullptr)
+BitsWord::BitsWord(int value)
 {
     mUpper = new BitsByte();
     mUpper->setValue(value >> 8);
@@ -67,8 +74,10 @@ string BitsWord::toString()
  */
 int BitsWord::toInt()
 {
-    int i = stoi(toString(), nullptr, 2);
-    return i;
+    int var = 0;
+    var |= mUpper->toInt() << 8;
+    var |= mLower->toInt();
+    return var;
 }
 
 /**

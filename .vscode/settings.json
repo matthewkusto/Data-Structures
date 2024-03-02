@@ -60,6 +60,7 @@
     "ostream": "cpp",
     "iostream": "cpp",
     "string": "cpp",
-    "cstddef": "cpp"
+    "cstddef": "cpp",
+    "vector": "cpp"
   }
 }

@@ -1,3 +1,10 @@
+/*
+File: Pair.h
+Author: Matthew Kusto
+Decription: This is the header file
+Date: 03/11/2024
+*/
+
 #ifndef PAIR_H
 #define PAIR_H
 

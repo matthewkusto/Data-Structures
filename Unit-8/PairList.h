@@ -1,3 +1,10 @@
+/*
+File: PairList.h
+Author: Matthew Kusto
+Decription: This is the header file
+Date: 03/11/2024
+*/
+
 #ifndef PAIRLIST_H
 #define PAIRLIST_H
 

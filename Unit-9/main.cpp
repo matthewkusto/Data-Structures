@@ -8,8 +8,9 @@ using namespace std;
 int main()
 {
     // Task 1 - Testing Stack Functionality
-    cout << "Testing Stack Functionality..." << endl;
-    cout << "==============================" << endl;
+    cout << "======================================" << endl;
+    cout << "TASK 1 - STACK" << endl;
+    cout << "======================================" << endl;
 
     Stack<int> stack;
 
@@ -25,11 +26,12 @@ int main()
     stack.push(50);
     cout << stack.peek() << endl;
     stack.clear();
-    cout << stack.empty() << endl;
+    cout << stack.empty() << endl
+         << endl;
 
-    // Task 2 - Testing Queue Functionality
-    cout << "Testing Queue Functionality..." << endl;
-    cout << "==============================" << endl;
+    cout << "======================================" << endl;
+    cout << "TASK 2 - QUEUE" << endl;
+    cout << "======================================" << endl;
 
     Queue<int> queue;
 
@@ -43,11 +45,15 @@ int main()
         queue.dequeue();
     }
 
-    cout << queue.isEmpty() << endl;
+    cout << queue.isEmpty() << endl
+         << endl;
 
     // ======================================
 
     // Task 3 - FileIO
+    cout << "======================================" << endl;
+    cout << "TASK 3 - FILEIO" << endl;
+    cout << "======================================" << endl;
     ifstream inFile("PalCheck.txt", ios::in);
     Stack<char> string1; // last in, first out (LIFO)
     Queue<char> string2; // first in, first out (FIFO)

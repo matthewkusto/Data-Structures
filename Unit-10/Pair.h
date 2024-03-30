@@ -20,7 +20,7 @@ public:
      * @brief Construct a new Pair object
      *
      */
-    Pair(): first(), second() {}
+    Pair() : first(), second() {}
 
     /**
      * @brief Construct a new Pair object
@@ -33,7 +33,7 @@ public:
     /**
      * @brief Get the First object
      *
-     * @return T
+     * @return F
      */
     F getFirst() const
     {
@@ -43,7 +43,7 @@ public:
     /**
      * @brief Get the Second object
      *
-     * @return T
+     * @return S
      */
     S getSecond() const
     {
@@ -72,26 +72,26 @@ public:
 
     /**
      * @brief
-     * 
-     * @param mPair 
-     * @return true 
-     * @return false 
+     *
+     * @param mPair
+     * @return true
+     * @return false
      */
-    bool operator==(Pair<F, S>& mPair) const
+    bool operator==(Pair<F, S> &mPair) const
     {
         return (this->first == mPair.first && this->second == mPair.second);
     }
 
     /**
-     * @brief 
-     * 
-     * @param mPair 
-     * @return true 
-     * @return false 
+     * @brief
+     *
+     * @param mPair
+     * @return true
+     * @return false
      */
-    bool operator!=(Pair<F,S> &mPair)
+    bool operator!=(Pair<F, S> &mPair)
     {
-        return !(*this == mPair); // utlizing the operator== 
+        return !(*this == mPair); // utlizing the operator==
     }
 
 private:

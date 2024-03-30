@@ -11,6 +11,12 @@ Date: 03/28/2024
 using std::cout;
 using std::endl;
 
+/**
+ * @brief
+ *
+ * @tparam T
+ * @note came from lecture materials
+ */
 template <typename T>
 struct Node
 {
@@ -35,6 +41,7 @@ public:
      * @brief
      *
      * @param data
+     * @note came from lecture materials
      */
     void addToEnd(T data)
     {
@@ -68,6 +75,7 @@ public:
      *
      * @param search
      * @param data
+     * @note came from lecture materials
      */
     void insert(T search, T data)
     {
@@ -88,6 +96,7 @@ public:
      * @brief
      *
      * @param search
+     * @note came from lecture materials
      */
     void deleteNode(T search)
     {
@@ -130,6 +139,7 @@ public:
      * @param search
      * @return true
      * @return false
+     * @note came from lecture materials
      */
     bool contains(T search)
     {
@@ -150,6 +160,7 @@ public:
      *
      * @param index
      * @return T
+     * @note came from lecture materials
      */
     T at(int index)
     {
@@ -171,6 +182,7 @@ public:
      * @brief
      *
      * @return int
+     * @note came from lecture materials
      */
     int count()
     {

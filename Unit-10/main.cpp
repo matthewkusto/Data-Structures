@@ -35,10 +35,8 @@ int main()
           << endl;
 
      cout << "========== CONTAINS?? ==========" << endl;
-     cout << "Is 4 in the list? (0: False, 1: True): " << endl;
-     cout << list.contains(4) << endl;
-     cout << "Is 9 in the list? (0: False, 1: True): " << endl;
-     cout << list.contains(9) << endl;
+     cout << "Is 4 in the list? (0: False, 1: True): " << list.contains(4) << endl;
+     cout << "Is 9 in the list? (0: False, 1: True): " << list.contains(9) << endl;
      cout << "===============================" << endl
           << endl;
 
@@ -70,12 +68,16 @@ int main()
      pair.deletePair(3, 4);
      pair.deletePair(9, 10);
      pair.printList();
-     cout << "===============================" << endl
-          << endl;
+     cout << "===============================" << endl;
 
-     PairList<int, char> pair2;
+     cout << "========== CONTAINS?? ==========" << endl;
+     Pair<int, int> nan(1, 20);
+     cout << "is (1, 20) in <int, int>?: " << pair.contains(nan) << endl
+          << endl;
+     cout << "===============================" << endl;
 
      cout << "++++++++++++++++++++++++++++++++++++++++++++++" << endl;
+     PairList<int, char> pair2;
      cout << "============ LIST (CHARS) ============" << endl;
      pair2.addPair(1, 'A');
      pair2.addPair(2, 'B');
@@ -103,8 +105,13 @@ int main()
      pair2.deletePair(2, 'B');
      pair2.deletePair(6, 'F');
      pair2.printList();
-     cout << "=======================================" << endl
+     cout << "=======================================" << endl;
+
+     cout << "========== CONTAINS?? ==========" << endl;
+     Pair<int, char> nan2(9, 'Z');
+     cout << "is (9, 'Z') in <int, char>?: " << pair2.contains(nan2) << endl
           << endl;
+     cout << "===============================" << endl;
 
      // ========== TEST CASE 3 ==========
 
@@ -122,8 +129,7 @@ int main()
 
      cout << "=========== GETTING: ===========" << endl;
      cout << "(" << names.getFirst("Kusto") << ", " << names.getSecond("Matthew") << ")" << endl;
-     cout << "=====================================" << endl
-          << endl;
+     cout << "=====================================" << endl;
 
      cout << "========== DELETING: ==========" << endl;
      cout << "Deleting Pair: Matthew Kusto" << endl;
@@ -132,6 +138,13 @@ int main()
      cout << "===============================" << endl
           << endl;
 
+     cout << "========== CONTAINS?? ==========" << endl;
+     Pair<string, string> nan3("Elon", "Musk");
+     Pair<string, string> nan4("Warren", "Buffet");
+     cout << "is (Elon, Musk) in names?: " << names.contains(nan3) << endl;
+     cout << "is (Warren, Buffet) in names?: " << names.contains(nan4) << endl;
+     cout << "===============================" << endl
+          << endl;
      cout << "+++++++++++++++++++++++++++++++++++++++++++++++++++++++" << endl;
 
      // ========== TEST CASE 4 ==========
@@ -162,6 +175,15 @@ int main()
      flt.printList();
      cout << "===============================" << endl
           << endl;
+
+     cout << "========== CONTAINS?? ==========" << endl;
+     Pair<float, float> nan5(.762, .7523);
+     Pair<float, float> nan6(.9532, 4.8742);
+     cout << "is (.762, .7523) in float?: " << flt.contains(nan5) << endl;
+     cout << "is (.9532, 4.8742) in float?: " << flt.contains(nan6) << endl;
+     cout << "===============================" << endl
+          << endl;
+     cout << "+++++++++++++++++++++++++++++++++++++++++++++++++++++++" << endl;
 
      return 0;
 }

@@ -1,5 +1,5 @@
-//#include "DoublyLinkedList.h"
-#include "RPNCalc.h"
+// #include "DoublyLinkedList.h"
+#include "Infix.h"
 #include "Queue.h"
 
 int main()
@@ -24,7 +24,8 @@ int main()
     lst.insert("1", "2");
     lst.printList();
     cout << "------" << endl;
-    cout << "====================" << endl << endl;
+    cout << "====================" << endl
+         << endl;
 
     cout << "=== TEST CASE #2 (STACK: LIFO) ===" << endl;
     // LIFO
@@ -44,7 +45,8 @@ int main()
     stack.printList();
     cout << "------" << endl;
     cout << "Peek: " << stack.peek() << endl;
-    cout << "====================" << endl << endl;
+    cout << "====================" << endl
+         << endl;
 
     cout << "=== TEST CASE #3 (QUEUE: FIFO) ===" << endl;
     // FIFO
@@ -61,16 +63,29 @@ int main()
     queue.dequeue();
     queue.printList();
     cout << "------" << endl;
-    cout << "Peek: " << queue.peek() << endl;;
-    cout << "====================" << endl << endl;
+    cout << "Peek: " << queue.peek() << endl;
+    ;
+    cout << "====================" << endl
+         << endl;
 
     cout << "=== TEST CASE #4 (RPNCalc) ===" << endl;
-    RPNCalc<string> calc;
-    calc.push("3");
-    calc.push("4");
-    calc.performOp("+");
+    RPNCalc calc;
+    cout << "Test Result = " << calc.performOp("1.69 2.2 +") << endl;
+    cout << "Test Result = " << calc.performOp("8 2.2 -") << endl;
+    cout << "Test Result = " << calc.performOp("4 7.6 *") << endl;
+    cout << "Test Result = " << calc.performOp("8 0 /") << endl;
+    cout << "Test Result = " << calc.performOp("3 2 5 * +") << endl;
+    cout << "====================" << endl
+         << endl;
 
+    cout << "=== TEST CASE #5 (INFIX) ===" << endl;
+    Infix ifx;
+    string str = ifx.infixToPostfix("1*(2+3*4)+5");
+    cout << "Test input: " << str << endl;
+    cout << "Postfix: " << str << endl;
+    cout << "Infix result: " << calc.performOp(str) << endl;
+    cout << "====================" << endl
+         << endl;
 
     return 0;
-
 }

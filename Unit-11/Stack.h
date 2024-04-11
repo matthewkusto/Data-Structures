@@ -8,12 +8,22 @@ template <class T>
 class Stack : public DoublyLinkedList<T>
 {
 public:
+    /**
+     * @brief 
+     * 
+     * @param data 
+     */
     void push(T data)
     {
         // Will be using addToFront function
         this->addToFront(data);
     }
 
+    /**
+     * @brief 
+     * 
+     * @return T 
+     */
     T pop() // pops head
     {
         T item = this->getHead()->data;
@@ -21,6 +31,11 @@ public:
         return item;
     }
 
+    /**
+     * @brief 
+     * 
+     * @return T 
+     */
     T peek()
     {
         return this->getHead()->data;

@@ -8,23 +8,32 @@ template <typename T>
 struct Node
 {
 	T data;
-	Node* Next = nullptr;
-	Node* Prev = nullptr;
+	Node *Next = NULL;
+	Node *Prev = NULL;
 };
 
 template <class T>
 class DoublyLinkedList
 {
 public:
+	/**
+	 * @brief Construct a new Doubly Linked List object
+	 *
+	 */
+	DoublyLinkedList() : mHead(NULL), mTail(NULL) {}
 
-	DoublyLinkedList() : mHead(nullptr), mTail(nullptr) {}
-
+	/**
+	 * @brief
+	 *
+	 * @param data
+	 * @note this came from the lecture
+	 */
 	void addToEnd(T data) // from lecture
 	{
 
 		if (mHead == NULL)
 		{
-			Node<T>* n = new Node<T>;
+			Node<T> *n = new Node<T>;
 			n->Next = NULL;
 			n->data = data;
 			n->Prev = NULL;
@@ -32,57 +41,67 @@ public:
 		}
 		else
 		{
-			Node<T>* p = mHead; // Start at Head		
+			Node<T> *p = mHead; // Start at Head
 
-			//Traverse to the end
-			while (p->Next != nullptr)
+			// Traverse to the end
+			while (p->Next != NULL)
 			{
 				p = p->Next;
 			}
 
 			// Create the new Node
-			Node<T>* n = new Node<T>;
+			Node<T> *n = new Node<T>;
 			n->Next = NULL;
 			n->data = data;
 			n->Prev = NULL;
 
-			p->Next = n;   //Assign the new node to the end 
+			p->Next = n; // Assign the new node to the end
 
 			n->Prev = p;
-			mTail = n;  // Reassign the tail to the new node added. 
+			mTail = n; // Reassign the tail to the new node added.
 		}
+		count++;
 	}
 
-	// adds node to the front (Made myself)
+	/**
+	 * @brief
+	 *
+	 * @param data
+	 * @note adds node to the front (Made myself)
+	 */
 	void addToFront(T data)
 	{
 		if (mHead == NULL)
 		{
-			Node<T>* n = new Node<T>;
-			n->data = data;
+			Node<T> *n = new Node<T>;
 			n->Next = NULL;
+			n->data = data;
 			n->Prev = NULL;
 			mTail = mHead = n;
 		}
 		else
 		{
 			// New node
-			Node<T>* p = new Node<T>;
+			Node<T> *p = new Node<T>;
 			p->Next = NULL;
 			p->data = data;
 			p->Prev = NULL;
 
-			// 
+			//
 			p->Next = mHead;
 			mHead->Prev = p;
 			mHead = p;
 		}
+		count++;
 	}
 
-	// prints
+	/**
+	 * @brief
+	 * @note this came from the lecture
+	 */
 	void printList()
 	{
-		Node<T>* p = mHead;
+		Node<T> *p = mHead;
 		cout << "HEAD: ";
 		while (p != NULL)
 		{
@@ -90,21 +109,27 @@ public:
 			p = p->Next;
 			if (p == NULL)
 			{
-				cout << "NULL :Tail" << endl;;
+				cout << "NULL :Tail" << endl;
+				;
 			}
 		}
 	}
 
-	// 
+	/**
+	 * @brief
+	 *
+	 * @param search
+	 * @param data
+	 * @note this came from the lecture
+	 */
 	void insert(T search, T data)
 	{
-		Node<T>* p = mHead;
+		Node<T> *p = mHead;
 		while (p->data != search)
 			p = p->Next;
 
-		Node<T>* n = new Node<T>;
+		Node<T> *n = new Node<T>;
 		n->data = data;
-
 
 		// Watch the order in which things are done
 		n->Next = p->Next;
@@ -115,16 +140,21 @@ public:
 		count++;
 	}
 
+	/**
+	 * @brief
+	 *
+	 * @param search
+	 * @note this came from the lecture
+	 */
 	void deleteNode(T search) // from lecture
 	{
-		Node<T>* p = mHead;
+		Node<T> *p = mHead;
 
 		if (p->data == search) // checking the head
 		{
 			mHead = mHead->Next; // updates the head to the next node
-			mHead->Prev = NULL; // updates the previous of the head to NULL
-			p->Next = NULL;
 			delete p;
+			count--;
 			return;
 		}
 
@@ -133,7 +163,7 @@ public:
 			p = p->Next;
 		}
 
-		if (p->Next->Next == NULL)		// If at the end delete the end
+		if (p->Next->Next == NULL) // If at the end delete the end
 		{
 			p = mTail;
 			mTail = mTail->Prev;
@@ -143,40 +173,41 @@ public:
 		}
 		else
 		{
-			Node<T>* delPtr = p->Next;
+			Node<T> *delPtr = p->Next;
 			p->Next->Next->Prev = p;
 			p->Next = p->Next->Next;
 			delPtr->Next = NULL;
 			delPtr->Prev = NULL;
 			delete delPtr;
 		}
+		count--;
 	}
 
-	// prints the doubly linked list in reverse
-	void printBackward()
-	{
-		Node<T>* p = mTail;
-		while (p != NULL)
-		{
-			cout << p->data << endl;
-			p = p->Prev;
-		}
-	}
-
-	Node<T>* getHead() const
+	/**
+	 * @brief Get the Head object
+	 *
+	 * @return Node<T>*
+	 * @note Made myself
+	 */
+	Node<T> *getHead() const
 	{
 		return mHead;
 	}
 
-	Node<T>* getTail() const
+	/**
+	 * @brief
+	 *
+	 * @return int
+	 * @note Made myself
+	 */
+	int length()
 	{
-		return mTail;
+		return count;
 	}
-	
-private:
 
-	Node<T>* mHead = new Node<T>;
-	Node<T>* mTail = new Node<T>;
+private:
+	Node<T> *mHead = new Node<T>;
+	Node<T> *mTail = new Node<T>;
 	int count = 0;
 };
 

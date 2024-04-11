@@ -8,11 +8,21 @@ template <class T>
 class Queue : public DoublyLinkedList<T>
 {
 public:
+    /**
+     * @brief 
+     * 
+     * @param data 
+     */
     void enqueue(T data)
     {
         this->addToEnd(data);
     }
 
+    /**
+     * @brief 
+     * 
+     * @return T 
+     */
     T dequeue() // pops head
     {
         T item = this->getHead()->data;
@@ -20,6 +30,11 @@ public:
         return item;
     }
 
+    /**
+     * @brief 
+     * 
+     * @return T 
+     */
     T peek()
     {
         return this->getHead()->data;

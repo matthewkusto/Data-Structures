@@ -5,64 +5,52 @@
 #include <string>
 #include <sstream>
 
-template <class T>
-class RPNCalc : public Stack<T>
+class RPNCalc : public Stack<double>
 {
 public:
-
-	T performOp(const string& input)
+	/**
+	 * @brief
+	 *
+	 * @param expression
+	 * @return double
+	 */
+	double performOp(const string &expression)
 	{
-		string num;
-		double rVal, lVal;
-		
-		istringstream iss(input);
-		while (iss >> num)
+		string token;
+		istringstream iss(expression);
+
+		while (iss >> token)
 		{
-			if (isdigit(num[0]))
+			if (isdigit(token[0]))
 			{
-				double numValue = stod(num);
-				this->push(numValue);
+				this->push(stod(token));
 			}
 			else
 			{
-				rVal = this->pop();
-				lVal = this->pop();
+				double rVal = this->pop();
+				double lVal = this->pop();
+				double result = 0;
 
-				switch (num[0])
+				switch (token[0])
 				{
 				case '+':
-					this->push(rVal + lVal);
+					result = (lVal + rVal);
 					break;
 				case '-':
-					this->push(rVal - lVal);
+					result = (lVal - rVal);
 					break;
 				case '*':
-					this->push(rVal * lVal);
+					result = (lVal * rVal);
 					break;
 				case '/':
-					this->push(rVal / lVal);
-					break;
-				default:
+					result = (lVal / rVal);
 					break;
 				}
+				this->push(result);
 			}
 		}
-		
-		T result = this->peek();
-		return result;
-	}
 
-	bool isOperator(const T& input)
-	{
-		string ops[] = { "+", "-", "*", "/", "(", ")" };
-		for (int i = 0; i < 6; i++)
-		{
-			if (input == ops[i])
-			{
-				return true;
-			}
-		}
-		return false;
+		return this->peek();
 	}
 };
 

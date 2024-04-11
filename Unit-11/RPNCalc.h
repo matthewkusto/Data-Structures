@@ -18,7 +18,7 @@ public:
 		istringstream iss(input);
 		while (iss >> num)
 		{
-			if (isdigit(num[0])
+			if (isdigit(num[0]))
 			{
 				double numValue = stod(num);
 				this->push(numValue);

@@ -11,20 +11,26 @@ public:
      *
      * @param expression
      * @return string
-     * @note came from lecture material
      */
     string infixToPostfix(string expression)
     {
         char token;
         string postfix;
         istringstream iss(expression);
+        // bool lastWasOp = false;
 
-        while (iss >> token)
+        while (iss >> noskipws >> token)
         {
-            if (isOperand(token))
+            // if (token == ' ' && lastWasOp)
+            //{
+            //	postfix += " ";
+            //	lastWasOp = false;
+            //	continue;
+            // }
+            if (isOperand(token)) // if a number or letter
             {
+                // lastWasOp = true;
                 postfix += token;
-                postfix += " ";
             }
             else if (token == '(')
             {
@@ -42,7 +48,7 @@ public:
             }
             else
             {
-                while (stack.length() > 0 && precedence(stack.peek()) >= precedence(token))
+                while (!stack.isEmpty() && precedence(stack.peek()) >= precedence(token))
                 {
                     postfix += stack.pop();
                     postfix += " ";
@@ -51,12 +57,17 @@ public:
             }
         }
 
-        while (stack.length() > 0)
+        while (!stack.isEmpty())
         {
+            // one condition needs to be here to append a space AFTER an opperand
+            // if (lastWasOp)
+            //{
+            //	postfix += " ";
+            //	lastWasOp = false;
+            //}
             postfix += stack.pop();
             postfix += " ";
         }
-
         return postfix;
     }
 
@@ -65,7 +76,6 @@ public:
      *
      * @param x
      * @return int
-     * @note came from lecture material
      */
     int precedence(char x)
     {
@@ -90,7 +100,6 @@ public:
      * @param c
      * @return true
      * @return false
-     * @note came from lecture material
      */
     bool isOperator(char c)
     {
@@ -103,7 +112,6 @@ public:
      * @param s
      * @return true
      * @return false
-     * @note came from lecture material
      */
     bool isOperand(char s)
     {

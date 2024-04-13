@@ -205,6 +205,17 @@ public:
 		return count;
 	}
 
+	/**
+	 * @brief
+	 *
+	 * @return true
+	 * @return false
+	 */
+	bool isEmpty()
+	{
+		return count > 0 ? false : true;
+	}
+
 private:
 	Node<T> *mHead = new Node<T>;
 	Node<T> *mTail = new Node<T>;

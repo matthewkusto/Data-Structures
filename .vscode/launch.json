@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/the5k/Desktop/Data Structures/Unit-2/Assignment 2",
-      "program": "c:/Users/the5k/Desktop/Data Structures/Unit-2/Assignment 2/build/Debug/outDebug",
+      "cwd": "c:/Users/the5k/Desktop/Data Structures",
+      "program": "c:/Users/the5k/Desktop/Data Structures/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

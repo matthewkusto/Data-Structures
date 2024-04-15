@@ -65,8 +65,8 @@ public:
                 postfix += " ";
                 lastWasOp = false;
             }
-            postfix += " ";
             postfix += stack.pop();
+            postfix += " ";
         }
         return postfix;
     }

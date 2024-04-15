@@ -27,7 +27,7 @@ public:
                 lastWasOp = false;
                 continue;
             }
-            if (isOperand(token)) // if a number or letter
+            else if (isOperand(token)) // if a number or letter
             {
                 lastWasOp = true;
                 postfix += token;

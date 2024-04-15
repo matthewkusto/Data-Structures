@@ -17,19 +17,19 @@ public:
         char token;
         string postfix;
         istringstream iss(expression);
-        // bool lastWasOp = false;
+        bool lastWasOp = false;
 
         while (iss >> noskipws >> token)
         {
-            // if (token == ' ' && lastWasOp)
-            //{
-            //	postfix += " ";
-            //	lastWasOp = false;
-            //	continue;
-            // }
+            if (token == ' ' && lastWasOp)
+            {
+                postfix += " ";
+                lastWasOp = false;
+                continue;
+            }
             if (isOperand(token)) // if a number or letter
             {
-                // lastWasOp = true;
+                lastWasOp = true;
                 postfix += token;
             }
             else if (token == '(')
@@ -60,13 +60,13 @@ public:
         while (!stack.isEmpty())
         {
             // one condition needs to be here to append a space AFTER an opperand
-            // if (lastWasOp)
-            //{
-            //	postfix += " ";
-            //	lastWasOp = false;
-            //}
-            postfix += stack.pop();
+            if (lastWasOp)
+            {
+                postfix += " ";
+                lastWasOp = false;
+            }
             postfix += " ";
+            postfix += stack.pop();
         }
         return postfix;
     }

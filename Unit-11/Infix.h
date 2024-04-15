@@ -21,16 +21,19 @@ public:
 
         while (iss >> noskipws >> token)
         {
+            cout << "This is token: " << token << endl;
+            cout << "This is postfix: " << postfix << endl;
             if (token == ' ' && lastWasOp)
             {
                 postfix += " ";
                 lastWasOp = false;
                 continue;
             }
-            else if (isOperand(token)) // if a number or letter
+            if (isOperand(token)) // if a number or letter
             {
                 lastWasOp = true;
                 postfix += token;
+                // postfix += " ";
             }
             else if (token == '(')
             {

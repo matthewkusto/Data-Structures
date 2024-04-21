@@ -17,43 +17,83 @@ public:
     int height;
 
     // might have to initialize the count;
+    /**
+     * @brief Construct a new Avl Node object
+     * 
+     * @param theElement 
+     * @param lt 
+     * @param rt 
+     * @param h 
+     */
     AvlNode(const T &theElement, AvlNode *lt, AvlNode *rt, int h = 0)
         : element(theElement), left(lt), right(rt), height(h) {}
-    template <class T>
-    friend class AvlTree;
 };
 
 template <class T>
 class AvlTree
 {
 public:
+    /**
+     * @brief Construct a new Avl Tree object
+     *
+     */
     AvlTree() : root(NULL) {}
 
+    /**
+     * @brief Destroy the Avl Tree object
+     *
+     */
     ~AvlTree()
     {
         makeEmpty();
     }
 
+    /**
+     * @brief
+     *
+     * @return T&
+     */
     T &findMin()
     {
         return elementAt(findMin(this->root));
     }
 
+    /**
+     * @brief
+     *
+     * @return T&
+     */
     T &findMax()
     {
         return elementAt(findMax(this->root));
     }
 
+    /**
+     * @brief
+     *
+     * @param x
+     * @return T&
+     */
     T &find(const T &x)
     {
         return elementAt(find(x, this->root));
     }
 
+    /**
+     * @brief
+     *
+     * @return true
+     * @return false
+     */
     bool isEmpty() const
     {
         return root == NULL; // og is root
     }
 
+    /**
+     * @brief
+     *
+     */
     void printTree() const
     {
 
@@ -63,21 +103,41 @@ public:
             printTree(this->root, 0);
     }
 
+    /**
+     * @brief
+     *
+     */
     void makeEmpty()
     {
         makeEmpty(this->root);
     }
 
+    /**
+     * @brief
+     *
+     * @param x
+     */
     void insert(const T &x)
     {
         insert(x, this->root);
     }
 
+    /**
+     * @brief
+     *
+     * @param x
+     */
     void remove(const T &x)
     {
         remove(x, this->root);
     }
 
+    /**
+     * @brief
+     *
+     * @param rhs
+     * @return const AvlTree&
+     */
     const AvlTree &operator=(const AvlTree &rhs)
     {
         if (this != &rhs)
@@ -88,11 +148,23 @@ public:
         return *this;
     }
 
+    /**
+     * @brief Get the Root object
+     *
+     * @return AvlNode<T>*
+     */
     AvlNode<T> *getRoot() const
     {
         return root; // root was og
     }
 
+    /**
+     * @brief
+     *
+     * @param data
+     * @return true
+     * @return false
+     */
     bool contains(T data)
     {
         return contains(data, this->root);
@@ -101,6 +173,12 @@ public:
 private:
     AvlNode<T> *root;
 
+    /**
+     * @brief
+     *
+     * @param root
+     * @return T&
+     */
     T &elementAt(AvlNode<T> *root) // get rid of
     {
         if (root == NULL)
@@ -112,6 +190,12 @@ private:
             return root->element;
     }
 
+    /**
+     * @brief
+     *
+     * @param x
+     * @param root
+     */
     void insert(const T &x, AvlNode<T> *&root) const
     {
         if (root == NULL)
@@ -139,6 +223,12 @@ private:
             root->height = max(height(root->left), height(root->right)) + 1;
     }
 
+    /**
+     * @brief
+     *
+     * @param x
+     * @param root
+     */
     void remove(T x, AvlNode<T> *&root)
     {
         if (root == NULL)
@@ -197,6 +287,12 @@ private:
         }
     }
 
+    /**
+     * @brief
+     *
+     * @param t
+     * @return AvlNode<T>*
+     */
     AvlNode<T> *findMin(AvlNode<T> *t) const
     {
         if (t == NULL)
@@ -207,6 +303,12 @@ private:
         return t;
     }
 
+    /**
+     * @brief
+     *
+     * @param t
+     * @return AvlNode<T>*
+     */
     AvlNode<T> *findMax(AvlNode<T> *t) const
     {
         if (t == NULL)
@@ -217,6 +319,13 @@ private:
         return t;
     }
 
+    /**
+     * @brief
+     *
+     * @param x
+     * @param t
+     * @return AvlNode<T>*
+     */
     AvlNode<T> *find(const T &x, AvlNode<T> *t) const
     {
         while (t != NULL)
@@ -230,6 +339,11 @@ private:
         return NULL; // No match
     }
 
+    /**
+     * @brief
+     *
+     * @param t
+     */
     void makeEmpty(AvlNode<T> *&t) const
     {
         if (t != NULL)
@@ -241,16 +355,27 @@ private:
         t = NULL;
     }
 
-    // void printTree(AvlNode<T>* t) const
-    //{
-    //     if (t != NULL)
-    //     {
-    //         printTree(t->left);
-    //         cout << t->element << endl;
-    //         printTree(t->right);
-    //     }
-    // }
+    /**
+     * @brief
+     *
+     * @param t
+     */
+    void printTree(AvlNode<T> *t) const
+    {
+        if (t != NULL)
+        {
+            printTree(t->left);
+            cout << t->element << endl;
+            printTree(t->right);
+        }
+    }
 
+    /**
+     * @brief
+     *
+     * @param t
+     * @param space
+     */
     void printTree(AvlNode<T> *t, int space) const
     {
         if (t != NULL)
@@ -267,6 +392,12 @@ private:
         }
     }
 
+    /**
+     * @brief
+     *
+     * @param t
+     * @return AvlNode<T>*
+     */
     AvlNode<T> *clone(AvlNode<T> *t) const
     {
         if (t == NULL)
@@ -277,16 +408,34 @@ private:
     }
 
     // Avl manipulations
+    /**
+     * @brief
+     *
+     * @param root
+     * @return int
+     */
     int height(AvlNode<T> *root) const
     {
         return root == NULL ? -1 : root->height;
     }
 
+    /**
+     * @brief
+     *
+     * @param lhs
+     * @param rhs
+     * @return int
+     */
     int max(int lhs, int rhs) const
     {
         return lhs > rhs ? lhs : rhs;
     }
 
+    /**
+     * @brief
+     *
+     * @param k2
+     */
     void rotateWithLeftChild(AvlNode<T> *&k2) const
     {
         AvlNode<T> *k1 = k2->left;
@@ -297,6 +446,11 @@ private:
         k2 = k1;
     }
 
+    /**
+     * @brief
+     *
+     * @param k1
+     */
     void rotateWithRightChild(AvlNode<T> *&k1) const
     {
         AvlNode<T> *k2 = k1->right;
@@ -307,19 +461,36 @@ private:
         k1 = k2;
     }
 
+    /**
+     * @brief
+     *
+     * @param k3
+     */
     void doubleWithLeftChild(AvlNode<T> *&k3) const
     {
         rotateWithRightChild(k3->left);
         rotateWithLeftChild(k3);
     }
 
+    /**
+     * @brief
+     *
+     * @param k1
+     */
     void doubleWithRightChild(AvlNode<T> *&k1) const
     {
         rotateWithLeftChild(k1->right);
         rotateWithRightChild(k1);
     }
 
-    // added this functionality to see if a word is in the tree
+    /**
+     * @brief
+     *
+     * @param data
+     * @param n
+     * @return true
+     * @return false
+     */
     bool contains(T data, AvlNode<T> *n)
     {
         if (n == NULL)

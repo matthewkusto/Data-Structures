@@ -24,6 +24,7 @@ int main()
     cout << "++++++++++++++++++" << endl;
     cout << "Removed 5: " << endl;
     bt.remove(10);
+    bt.remove(4);
     bt.printTree();
     cout << "++++++++++++++++++" << endl;
 
@@ -46,6 +47,11 @@ int main()
     cout << "Contains 70?: " << avl.find(70) << endl;
     cout << "++++++++++++++++++" << endl;
     avl.remove(10);
+    avl.remove(50);
+    avl.remove(44);
+    avl.remove(26);
+    avl.remove(34);
+    avl.remove(17);
     avl.printTree();
     cout << "++++++++++++++++++" << endl;
     avl.makeEmpty();
@@ -53,10 +59,11 @@ int main()
     cout << "Is tree empty?: " << avl.isEmpty() << endl;
     cout << "==================" << endl;
 
-    WordCount wc;
-
-    wc.readFile("WordCountTest-1.txt");
-    wc.printFile();
+	cout << "::::::FILEIO::::::" << endl;
+	WordCount wc;
+	wc.readFile("WordCountTest-1.txt");
+	wc.printFile();
+	cout << "++++++++++++++++++" << endl;
 
     return 0;
 }

@@ -20,8 +20,17 @@ struct WordInfo
 class WordCount : public AvlTree<WordInfo>
 {
 public:
+    /**
+     * @brief Construct a new Word Count object
+     *
+     */
     WordCount() {}
 
+    /**
+     * @brief
+     *
+     * @param strName
+     */
     void readFile(const string strName)
     {
         string forWord, aLine;
@@ -49,12 +58,21 @@ public:
         inFile.close();
     }
 
+    /**
+     * @brief
+     *
+     */
     void printFile() const
     {
         printFile(this->getRoot());
     }
 
 private:
+    /**
+     * @brief
+     *
+     * @param n
+     */
     void printFile(AvlNode<WordInfo> *n) const
     {
         if (n != NULL)
@@ -65,6 +83,12 @@ private:
         }
     }
 
+    /**
+     * @brief
+     *
+     * @param aWord
+     * @return string
+     */
     string someFunc(const string &aWord)
     {
         string result;

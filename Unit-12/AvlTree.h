@@ -19,11 +19,11 @@ public:
     // might have to initialize the count;
     /**
      * @brief Construct a new Avl Node object
-     * 
-     * @param theElement 
-     * @param lt 
-     * @param rt 
-     * @param h 
+     *
+     * @param theElement
+     * @param lt
+     * @param rt
+     * @param h
      */
     AvlNode(const T &theElement, AvlNode *lt, AvlNode *rt, int h = 0)
         : element(theElement), left(lt), right(rt), height(h) {}

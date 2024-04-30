@@ -19,7 +19,7 @@ int main()
     }
     inFile.close();
 
-    char letter, let = 'Y';
+    char letter, let = 'Y', again = 'Y';
     string name;
     do
     {
@@ -54,8 +54,9 @@ int main()
             cout << "Have a nice day" << endl;
             break;
         }
-
-    } while (letter != 'N');
+        cout << "Go Again? <y/n>: ";
+        cin >> again;
+    } while (toupper(again) != 'N');
 
     return 0;
 }
